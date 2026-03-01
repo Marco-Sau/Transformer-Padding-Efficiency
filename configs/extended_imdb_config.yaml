@@ -1,0 +1,33 @@
+training:
+  num_epochs: 3
+  batch_size: 8  # Reduced to 8 to prevent OOM with max_length=512
+  gradient_accumulation_steps: 2  # Keeps effective batch size at 16
+  learning_rate: 2e-5
+  warmup_steps: 500
+  weight_decay: 0.01
+  fp16: true
+  evaluation_strategy: "epoch"
+  save_strategy: "epoch"
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_accuracy"
+
+models:
+  - name: "bert-base-uncased"
+    max_length: 512
+  - name: "distilbert-base-uncased"
+    max_length: 512
+  - name: "roberta-base"
+    max_length: 512
+
+datasets:
+  imdb:
+    num_labels: 2
+    max_length: 512
+    val_split: 0.1
+  emotion:
+    num_labels: 6
+    max_length: 128
+
+seeds: [42, 123, 456]
+
+padding_strategies: ["static", "dynamic"]

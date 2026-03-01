@@ -1,0 +1,31 @@
+training:
+  num_epochs: 1
+  batch_size: 32
+  learning_rate: 2e-5
+  warmup_steps: 500
+  weight_decay: 0.01
+  fp16: true
+  evaluation_strategy: "epoch"
+  save_strategy: "epoch"
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_accuracy"
+
+models:
+  - name: "bert-base-uncased"
+    max_length: 256
+  - name: "distilbert-base-uncased"
+    max_length: 256
+
+datasets:
+  imdb:
+    num_labels: 2
+    max_length: 256
+    val_split: 0.1
+  emotion:
+    num_labels: 6
+    max_length: 128
+
+seeds: [42, 123, 456]
+
+padding_strategies: ["static", "dynamic"]
+
