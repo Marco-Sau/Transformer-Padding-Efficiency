@@ -48,31 +48,6 @@ def load_config(config_path: str) -> dict:
     return config
 
 
-def run_baseline_experiment(config: dict, output_dir: str = "./results"):
-    """Run baseline experiment (Chapter 3 replication)."""
-    logger.info("Running baseline experiment (Chapter 3 replication)...")
-
-    model_name = "bert-base-uncased"
-    dataset_name = "imdb"
-    padding_strategy = "dynamic"
-    seed = 42
-
-    results_df = run_experiment_with_seeds(
-        model_name=model_name,
-        dataset_name=dataset_name,
-        padding_strategy=padding_strategy,
-        seeds=[seed],
-        config=config,
-        output_dir=output_dir,
-    )
-
-    # Save results
-    baseline_path = os.path.join(output_dir, "tables", "baseline_results.csv")
-    results_df.to_csv(baseline_path, index=False)
-    logger.info(f"Baseline results saved to {baseline_path}")
-
-    return results_df
-
 
 def run_architecture_comparison(config: dict, output_dir: str = "./results"):
     """Run architecture comparison experiments."""
@@ -175,8 +150,8 @@ def main():
     parser = argparse.ArgumentParser(description="Run LLM training efficiency experiments")
     parser.add_argument(
         "--experiment",
-        choices=["baseline", "architecture", "padding", "emotion", "all"],
-        default="baseline",
+        choices=["architecture", "padding", "emotion", "all"],
+        default="architecture",
         help="Type of experiment to run (emotion is optional validation)",
     )
     parser.add_argument(
@@ -235,9 +210,7 @@ def main():
     logger.info(f"Output directory: {args.output_dir}")
 
     # Run experiments
-    if args.experiment == "baseline":
-        run_baseline_experiment(config, args.output_dir)
-    elif args.experiment == "architecture":
+    if args.experiment == "architecture":
         run_architecture_comparison(config, args.output_dir)
     elif args.experiment == "padding":
         run_padding_comparison(config, args.output_dir, dataset_name="imdb")
@@ -245,7 +218,6 @@ def main():
         run_emotion_validation(config, args.output_dir)
     elif args.experiment == "all":
         logger.info("Running all primary experiments...")
-        run_baseline_experiment(config, args.output_dir)
         run_architecture_comparison(config, args.output_dir)
         run_padding_comparison(config, args.output_dir, dataset_name="imdb")
         logger.info("Primary experiments completed. Emotion validation is optional.")

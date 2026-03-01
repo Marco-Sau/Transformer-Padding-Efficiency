@@ -20,8 +20,8 @@ seaborn>=0.12.0
 # Configuration
 pyyaml>=6.0
 
-# Experiment Tracking (Optional)
-wandb>=0.15.0
+# Parameter-Efficient Fine-Tuning (for Colab memory savings)
+peft>=0.11.0
 
 # Jupyter
 jupyter>=1.0.0
