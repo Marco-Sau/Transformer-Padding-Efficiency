@@ -71,7 +71,6 @@ wandb/
 
 # Report (private — not for public repository)
 report.tex
-report.pdf
 report.aux
 report.log
 report.out
