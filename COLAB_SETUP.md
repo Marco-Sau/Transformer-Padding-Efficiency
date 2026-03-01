@@ -9,9 +9,34 @@ This guide explains **everything** you need to do to run the experiments from sc
 - A **Google account** (free Gmail account works)
 - A **Google Colab Pro** subscription (~€11/month) — the free tier does not provide enough GPU time
 - A computer with a web browser
-- This project folder
+- **Git** installed on your computer (or you can download the project as a ZIP)
 
 > 💡 **Why Colab Pro?** Training 36 individual models, each for 3 epochs on a large dataset, takes approximately 18 hours of total GPU time. The free Colab tier disconnects sessions after ~1.5 hours of GPU use and provides slower GPUs. Colab Pro gives you priority access to the T4 GPU (16 GB VRAM) and longer session windows.
+
+---
+
+## Part 0 — Download the Project from GitHub
+
+The project is hosted publicly on GitHub. You need to download it to your computer first, then upload it to Google Drive.
+
+### Option A — Clone with Git (recommended)
+
+If you have Git installed, open a terminal (on Mac: **Terminal**, on Windows: **Command Prompt** or **Git Bash**) and run:
+
+```bash
+git clone https://github.com/Marco-Sau/Transformer-Padding-Efficiency.git
+```
+
+This creates a folder called `Transformer-Padding-Efficiency` on your computer with all the project files.
+
+### Option B — Download as ZIP
+
+1. Go to [https://github.com/Marco-Sau/Transformer-Padding-Efficiency](https://github.com/Marco-Sau/Transformer-Padding-Efficiency)
+2. Click the green **Code** button (top-right of the file list)
+3. Click **Download ZIP**
+4. Once downloaded, unzip the file — you will get a folder called `Transformer-Padding-Efficiency-main`
+
+> After downloading, you should have a folder on your computer containing `src/`, `configs/`, `notebooks/`, `README.md`, etc.
 
 ---
 
@@ -42,15 +67,15 @@ Google Drive is Google's cloud storage service. The Colab notebook reads your co
 ### Step 2.2 — Upload the Project Folder
 
 1. In Google Drive, click **+ New** (top-left corner) → **Folder upload**
-2. In the file dialog that appears, navigate to this `Project/` folder on your computer and select it
+2. In the file dialog that appears, navigate to the `Transformer-Padding-Efficiency` folder you downloaded in Part 0 and select it
 3. Google Drive will upload the entire folder with all its contents — this may take a few minutes depending on your internet connection
-4. When the upload finishes, you should see a folder named `Project` in your Drive
+4. When the upload finishes, you should see a folder named `Transformer-Padding-Efficiency` in your Drive
 
 ### Step 2.3 — Rename the Folder
 
 The notebook expects the folder to be named exactly **`llm_efficiency_study`**:
 
-1. Right-click (or Ctrl-click on Mac) on the newly uploaded `Project` folder
+1. Right-click (or Ctrl-click on Mac) on the uploaded `Transformer-Padding-Efficiency` folder
 2. Click **Rename**
 3. Type `llm_efficiency_study` and press Enter
 

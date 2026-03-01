@@ -8,13 +8,23 @@ This guide is for users who are already familiar with Python, Jupyter notebooks,
 
 - A **Google account**
 - A **Google Colab Pro** subscription (required — free tier times out before experiments finish)
-- The project folder uploaded to **Google Drive** as `llm_efficiency_study`
+- The project cloned or downloaded from GitHub (see Step 0 below)
+
+---
+
+## 0. Get the Project from GitHub
+
+```bash
+git clone https://github.com/Marco-Sau/Transformer-Padding-Efficiency.git
+```
+
+Or download the ZIP from [github.com/Marco-Sau/Transformer-Padding-Efficiency](https://github.com/Marco-Sau/Transformer-Padding-Efficiency) → **Code → Download ZIP** and unzip it.
 
 ---
 
 ## 1. Upload the Project to Google Drive
 
-Upload the entire `Project/` folder to your Google Drive and rename it `llm_efficiency_study`. The expected path after upload is:
+Upload the `Transformer-Padding-Efficiency` folder you just cloned/downloaded to your Google Drive, then rename it to `llm_efficiency_study`. The expected path after renaming is:
 
 ```
 My Drive/
